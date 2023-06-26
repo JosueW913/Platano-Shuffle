@@ -1,0 +1,45 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10px;
+}
+
+body {
+    padding: 0;
+    text-align: center;
+    background-color: aliceblue;
+    background-image: url(./images/platano-farm.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+  }
+
+  #start-page {
+    border-style: solid;
+    border-radius: 6rem;
+    border-width: .5rem;
+    border-color: black;
+    background-color: greenyellow;
+    display: inline-block;
+    width: 55vw;
+    margin-top: 10rem;
+  }
+
+  #title-name {
+    font-size: 10rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    color:yellow;
+    text-shadow: 0 0 6px black, 0 0 6px black, 0 0 6px black;
+  }
+
+  body button {
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  .game-instructions {
+    font-size: 2rem;
+    display: inline-block;
+  }
+
