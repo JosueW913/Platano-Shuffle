@@ -9,23 +9,44 @@
 </head>
 <body>
 
-    <main id="start-page">
+    <main >
 
-        <h1 id = "title-name">The Platano <br> Shuffle</h1>
-        
-        <div id="game-start">
-          <button><img src="./images/dancing-plantain.gif" alt="" class="logo-img" /></button>
+        <div id="start-page">
+            <h1 id = "title-name">The Platano <br> Shuffle</h1>
+          <button id="start-button"><img src="./images/dancing-plantain.gif" alt="" class="start-logo-img" /></button>
           <br />
             <p>
                 <ul class="game-instructions">
-                    <li>Use your mouse for shooting location</li>
+                    <li>Use your mouse to locate your toston</li>
                     <li>Click and hold for (PLATANO) POWER!</li>
                 </ul>
             </p>
-        
         </div>
 
+        <div id="game-container">
+            <div>
+                
+            </div>
+            <div id="game-page">
+                <p>Tostones: <span id="tostones">5</span></p>
+                <p>Score: <span id="score">0</span></p>
+            </div>
+        </div>
+
+        <div id="game-end">
+            <h1>Great Game!</h1>
+            <br />
+            <button><img src="./images/ripe-banana.gif" alt="" class="restart-logo-img" /></button>
+        </div>
+        
+        
+        
+
     </main>
+
+    <script src="js/weight.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/script.js"></script>
   
     
 </body>
