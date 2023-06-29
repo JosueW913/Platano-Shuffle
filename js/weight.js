@@ -8,11 +8,12 @@ class Weight {
         this.width = width;
         this.height = height;
         this.directionX = 0;
+        this.directionY = 0;
         this.element = document.createElement("img");
         this.element.src = imgSrc;
         this.element.style.position = "absolute";
-        this.element.style.width = `17vw`;
-        this.element.style.height = `17vw`;
+        this.element.style.width = `${width}px`;
+        this.element.style.height = `${height}px`;
         this.element.style.left = `${left}px`;
         this.element.style.top = `${top}px`;
         this.gamePage.appendChild(this.element);
@@ -20,6 +21,11 @@ class Weight {
 
     move () {
         this.left += this.directionX;
+        this.top += this.directionY;
+
+        if (this.left > this.gamePage.offsetWidth - this.width - 10) {
+            this.left = this.gamePage.offsetWidth - this.width - 10;
+            }
 
 
         this.updatePosition();

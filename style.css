@@ -47,33 +47,29 @@ body {
 
   #game-container {
     display: flex;
-    width: 98vw;
-    padding: 20px 0px;
+    padding: 0px 40px;
     justify-content: center;
+    width: 45vw;
   }
 
   #game-page {
     display: none;
+    justify-content: center;
     align-content: center;
-    padding: 30vw 0px;
-    position: absolute;
+    padding: 21vw 0px;
     background-image: url(./images/shuffleboard-table1.png);
     background-repeat: no-repeat;
     background-size: cover;
     font-size: 4rem;
-    text-align:right;
+    border-style: solid;
+    border-width: .5rem;
+    border-color: black;
   }
 
-  @keyframes slide {
-    0% {
-      background-position: 0 -1000px;
-    }
-    95% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 0 50px;
-    }
+  #tostones {
+    display: flex;
+    text-align: right;
+
   }
 
   #game-end {
