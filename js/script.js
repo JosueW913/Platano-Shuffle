@@ -30,7 +30,9 @@ window.onload = function () {
 
     let count = 0;
     let intervalId;
+    let score = [];
 
+    console.log(intervalId);
     game.gamePage.onmousedown = (e) => {
           console.log("hi");
     
@@ -38,15 +40,43 @@ window.onload = function () {
             count = count + 1;
             console.log(count);
           }, 1000);
-          console.log(intervalId);
+          
+
+          
         };
     
         game.gamePage.onmouseup = (e) => {
-          console.log(intervalId);
+          
           clearInterval(intervalId);
+          console.log(intervalId);
           console.log("stopped");
-          count = 0;
-          game.weight.element.style.top = 0 + "px";
+          
+
+          if(count < 1) {
+            game.weight.element.style.top = 250 + 'px';
+            score.push(0);
+          
+          } else if(count > 1 && count < 2) {
+            game.weight.element.style.top = 100 + 'px';
+            score.push(1);
+          } else if(count > 2 && count < 3) {
+            game.weight.element.style.top = 100 + 'px';
+            score.push(2);
+          } else if(count > 3 && count < 4) {
+            game.weight.element.style.top = 100 + 'px';
+            score.push(3);
+          } else if(count > 4) {
+            game.weight.element.style.top = 0 + 'px';
+            score.push(4);
+          }
+          console.log(score)
+          setTimeout(() => {
+            game.weight.element.style.top = 850 + "px";
+            count = 0;
+
+        
+          }, 2000)
+          
         };
 
     }

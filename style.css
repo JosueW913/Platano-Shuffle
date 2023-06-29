@@ -70,18 +70,30 @@ body {
     border-color: black;
   }
 
-  #tostones {
+  .stats {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-style: solid;
+    border-radius: 6rem;
+    border-width: .5rem;
+    border-color: black;
+    background-color: greenyellow;
+    height: fit-content;
+    
+  }
+
+  /* #tostones {
     text-align:end;
-    font-size: 5rem;
+    
 
   }
 
   #score {
-    display: flex;
     text-align: right;
-    font-size: 5rem;
 
-  }
+  } */
 
   #game-end {
     display: none;
