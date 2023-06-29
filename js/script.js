@@ -15,9 +15,16 @@ window.onload = function () {
       game.gamePage.onmousemove = ((e) => {
         let mousePosition = e.target.getBoundingClientRect();
         console.log(e.clientX)
-        game.weight.element.style.left = e.clientX + 'px';
+        game.weight.element.style.left = e.clientX - 600 + 'px';
 
         game.gamePage.style.cursor = "none";
+
+        if (game.weight.element.style.left >= game.gamePage.style.width) {
+          game.weight.element.style.left = 0 + "px";
+        }
+
+        console.log(game.weight.element.style.left);
+      
 
     })
 

@@ -23,9 +23,9 @@ class Weight {
         this.left += this.directionX;
         this.top += this.directionY;
 
-        if (this.left > this.gamePage.offsetWidth - this.width - 10) {
-            this.left = this.gamePage.offsetWidth - this.width - 10;
-            }
+        // if (this.left > this.gamePage.offsetWidth - this.width) {
+        //     this.left = this.gamePage.offsetWidth - this.width;
+        //     }
 
 
         this.updatePosition();

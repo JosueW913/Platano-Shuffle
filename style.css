@@ -5,12 +5,16 @@ html {
 
 body {
     padding: 0;
-    text-align: center;
     background-color: aliceblue;
     background-image: url(./images/platano-farm.png);
     background-repeat: no-repeat;
     background-size: cover;
     
+  }
+
+  .start {
+    display: flex;
+    justify-content: center;
   }
 
   #start-page {
@@ -19,7 +23,8 @@ body {
     border-width: .5rem;
     border-color: black;
     background-color: greenyellow;
-    display: inline-block;
+    text-align: center;
+    display: block;
     width: 45vw;
     height: auto;
     margin-top: 5%;
@@ -47,16 +52,15 @@ body {
 
   #game-container {
     display: flex;
-    padding: 0px 40px;
     justify-content: center;
-    width: 45vw;
+    padding: 0px 0px;
+    width: 98vw;
+    height: auto;
   }
 
   #game-page {
     display: none;
-    justify-content: center;
-    align-content: center;
-    padding: 21vw 0px;
+    width: 90vw;
     background-image: url(./images/shuffleboard-table1.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -67,8 +71,15 @@ body {
   }
 
   #tostones {
+    text-align:end;
+    font-size: 5rem;
+
+  }
+
+  #score {
     display: flex;
     text-align: right;
+    font-size: 5rem;
 
   }
 
