@@ -37,6 +37,7 @@ window.onload = function () {
     let intervalId;
     let score = [];
     let sum = 0;
+    let finalScore = 0;
     let tostones = 5;
     const currentScore = document.querySelector("#score span");
     const currentToston = document.querySelector("#tostones span");
@@ -57,10 +58,8 @@ window.onload = function () {
         game.gamePage.onmouseup = (e) => {
           
           clearInterval(intervalId);
-          console.log(intervalId);
-          console.log("stopped");
           
-          if (count < 1) {
+          if (count < 2) {
             game.weight.element.style.top = 250 + "px";
             score.push(0);
             currentScore.innerText = Number(currentScore.innerText) + 0;
@@ -98,26 +97,49 @@ window.onload = function () {
             tostones = 5;
             currentToston.innerText = tostones;
           }
-          console.log(score);
-          // console.log(score.length);
+         
           if (score.length === 5) {
             currentScore.innerText = 0;
-            score = [];
-            return;
+            
+            for(let i = 0; i < score.length; i++) {
+              finalScore += score[i];
+            }
+
+            setTimeout (() => {
+              const gameEnd = document.getElementById("game-end");
+              gameEnd.style.display = "flex";
+              gameEnd.style.justifyContent = "center";
+              gameEnd.style.flexDirection = "column";
+              gameEnd.style.alignItems = "center";
+              game.gamePage.style.display = "none";
+              const stats = document.querySelector(".stats");
+              stats.style.display = "none";
+              const finalScoreSpan = document.getElementById('final-score')
+              finalScoreSpan.innerText = finalScore;
+            }, 1000);
+
           }
         };
           
+        restartButton.addEventListener("click", function () {
+          const gameEnd = document.getElementById("game-end");
+          const gamePage = document.getElementById("game-page");
+          const stats = document.querySelector(".stats");
+              stats.style.display = "block";
+        
+
+              gameEnd.style.display = "none";
+              gamePage.style.display = "block";
+              
+              
+              score = [];
+              finalScore = 0;
+              
+        });
+
         };
 
-        // restartButton.addEventListener("click", function () {
-        //   // Call the restartGame function when the button is clicked
-        //   restartGame();
-        // });
+        
       
-        // // The function that reloads the page to start a new game
-        // function restartGame() {
-        //   location.reload();
-        // }
-
 }
   
