@@ -12,16 +12,20 @@ window.onload = function () {
       game.start()
       console.log("start game");
 
-      game.gamePage.onmousemove = ((e) => {
+      console.log(game.gamePage.style.left)
+      game.weight.element.onmousemove = ((e) => {
+      if(game.weight.element.style.left === '215px') {
+        game.weight.element.style.left = '214px';
+        game.gamePage.style.cursor = "none";
+        return;
+      }
         let mousePosition = e.target.getBoundingClientRect();
         console.log(e.clientX)
         game.weight.element.style.left = e.clientX - 600 + 'px';
 
         game.gamePage.style.cursor = "none";
 
-        if (game.weight.element.style.left >= game.gamePage.style.width) {
-          game.weight.element.style.left = 0 + "px";
-        }
+        
 
         console.log(game.weight.element.style.left);
       
@@ -31,6 +35,12 @@ window.onload = function () {
     let count = 0;
     let intervalId;
     let score = [];
+    let sum = 0;
+    let tostones = 5;
+    const currentScore = document.querySelector("#score span");
+    const currentToston = document.querySelector("#tostones span");
+    currentToston.innerText = tostones;
+    currentScore.innerText = sum;
 
     console.log(intervalId);
     game.gamePage.onmousedown = (e) => {
@@ -52,33 +62,84 @@ window.onload = function () {
           console.log("stopped");
           
 
-          if(count < 1) {
-            game.weight.element.style.top = 250 + 'px';
-            score.push(0);
+          // if(count < 1) {
+          //   game.weight.element.style.top = 250 + 'px';
+          //   score.push(0);
           
-          } else if(count > 1 && count < 2) {
-            game.weight.element.style.top = 100 + 'px';
-            score.push(1);
-          } else if(count > 2 && count < 3) {
-            game.weight.element.style.top = 100 + 'px';
-            score.push(2);
-          } else if(count > 3 && count < 4) {
-            game.weight.element.style.top = 100 + 'px';
-            score.push(3);
-          } else if(count > 4) {
-            game.weight.element.style.top = 0 + 'px';
-            score.push(4);
-          }
-          console.log(score)
-          setTimeout(() => {
-            game.weight.element.style.top = 850 + "px";
-            count = 0;
+          // } else if(count > 1 && count < 2) {
+          //   game.weight.element.style.top = 100 + 'px';
+          //   score.push(1);
+          // } else if(count > 2 && count < 3) {
+          //   game.weight.element.style.top = 100 + 'px';
+          //   score.push(2);
+          // } else if(count > 3 && count < 4) {
+          //   game.weight.element.style.top = 100 + 'px';
+          //   score.push(3);
+          // } else if(count > 4) {
+          //   game.weight.element.style.top = 0 + 'px';
+          //   score.push(4);
+          // }
+          // console.log(score)
+          // setTimeout(() => {
+          //   game.weight.element.style.top = 850 + "px";
+          //   count = 0;
 
         
-          }, 2000)
+          // }, 2000)
+
+          if (count < 1) {
+            game.weight.element.style.top = 250 + "px";
+            score.push(0);
+            currentScore.innerText = Number(currentScore.innerText) + 0;
+          } else if (count === 1) {
+            game.weight.element.style.top = 100 + "px";
+            score.push(1);
+            currentScore.innerText = Number(currentScore.innerText) + 1;
+          } else if (count === 2) {
+            game.weight.element.style.top = 100 + "px";
+            score.push(2);
+            currentScore.innerText = Number(currentScore.innerText) + 2;
+          } else if (count === 3) {
+            game.weight.element.style.top = 100 + "px";
+            score.push(3);
+            currentScore.innerText = Number(currentScore.innerText) + 3;
+          } else if (count === 4) {
+            game.weight.element.style.top = 0 + "px";
+            score.push(4);
+            currentScore.innerText = Number(currentScore.innerText) + 4;
+          }
+
+          tostones--;
+          currentToston.innerText = tostones;
+          count = 0;
+
+          setTimeout(() => {
+            game.weight.element.style.top = 850 + "px";
+          }, 2000);
+          if (tostones <= 0) {
+            tostones = 5;
+            currentToston.innerText = tostones;
+          }
+          console.log(score);
+          // console.log(score.length);
+          if (score.length === 5) {
+            currentScore.innerText = 0;
+            score = [];
+            return;
+          }
+        };
           
         };
 
-    }
-  };
+        restartButton.addEventListener("click", function () {
+          // Call the restartGame function when the button is clicked
+          restartGame();
+        });
+      
+        // The function that reloads the page to start a new game
+        function restartGame() {
+          location.reload();
+        }
+
+}
   
